@@ -296,12 +296,15 @@ export default {
   syncJoin(socket, room) {
     return new Promise((resolve, reject) => {
       let timeout = setTimeout(() => {
-        reject();
+        reject(`timeout syncJoin room`);
       }, 10000)
       socket.join(room, function () {
         clearTimeout(timeout);
         resolve();
       })
+    }).catch(e=>{
+
+      console.log(e);
     })
   }
 };
