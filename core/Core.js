@@ -61,7 +61,7 @@ export default {
       if (this.enumerables) {
         for (j = this.enumerables.length; j--;) {
           k = this.enumerables[j];
-          if (config.hasOwnProperty(k)) {
+          if (config.hasOwnProperty && config.hasOwnProperty(k)) {
             object[k] = config[k];
           }
         }
@@ -302,7 +302,7 @@ export default {
         clearTimeout(timeout);
         resolve();
       })
-    }).catch(e=>{
+    }).catch(e => {
 
       console.log(e);
     })
