@@ -295,5 +295,22 @@ export default {
   },
   syncJoin(socket, room) {
     socket.join(room)
+  },
+
+  IOUtils: {
+    space: {
+      emit(space, list, event, data) {
+        let target = space.to(list);
+        target.emit(event, data);
+      },
+      async getAllSockets(space, roomId) {
+        let list = await space.in(roomId).allSockets();
+
+        return [...list.values()]
+      },
+      async fetchSockets(space, roomId) {
+        return await space.in(roomId).fetchSockets();
+      },
+    }
   }
 };
