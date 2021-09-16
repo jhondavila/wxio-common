@@ -294,20 +294,6 @@ export default {
     return `${this.textCapitalize(date.format("dddd DD"))} de ${this.textCapitalize(date.format("MMMM"))}`
   },
   syncJoin(socket, room) {
-    // return new Promise((resolve, reject) => {
-    //   let timeout = setTimeout(() => {
-    //     reject(`timeout syncJoin room`);
-    //   }, 10000)
-      socket.join(room
-      //   , function () {
-      //   clearTimeout(timeout);
-      //   resolve();
-      // })
-    )
-    
-    // .catch(e => {
-
-    //   console.log(e);
-    // })
+    socket.join(room)
   }
 };
